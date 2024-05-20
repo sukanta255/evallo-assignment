@@ -112,19 +112,19 @@ const UpdateEvent = ({updateEventApi, event, error}) => {
     </div>
     <div className="mb-4">
       <label htmlFor="duration" className="form-label">
-        Event duration <span className="text-danger small">(optional)</span>
+        Event duration 
       </label>
       <input {...register("duration")}   type="text" placeholder="duration your event" className="form-control" id="duration" aria-describedby="duration" />
     </div>
     <div className="mb-4">
       <label htmlFor="describe" className="form-label">
-        Event Description <span className="text-danger small">(optional)</span>
+        Event Description 
       </label>
       <input {...register("describe")}   type="text" placeholder="describe your event" className="form-control" id="describe" aria-describedby="describe" />
     </div>
     <div className="mb-4">
       <label htmlFor="sessionNotes" className="form-label">
-      Session Notes<span className="text-danger small">(optional)</span>
+      Session Notes
       </label>
       <input {...register("sessionNotes")}   type="text" placeholder="session Notes your event" className="form-control" id="sessionNotes" aria-describedby="sessionNotes" />
     </div>
