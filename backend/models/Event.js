@@ -4,11 +4,12 @@ const mongoose = require("mongoose");
 
 const EventSchema = new mongoose.Schema({
     title: {type: String, required: [true, "Please write a title for your event"]},
-    date: { type: Date},
-    time: { type: Date},
-    duration: { type: String},
-    describe: { type: String},
-    sessionNotes: { type: String}
+    date: { type: Date, required: [true, "Please write a date for your event"]},
+    time: { type: Date, required: [true, "Please write a time for your event"]},
+    duration: { type: String, required: [true, "Please write a duration for your event"]},
+    describe: { type: String, required: [true, "Please write a describe for your event"]},
+    participants: [{ type: String }],
+    sessionNotes: { type: String, required: [true, "Please write a sessionNotes for your event"]}
 })
 
 

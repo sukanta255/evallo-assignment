@@ -24,10 +24,11 @@ export const ShowEventApi = id => async dispatch => {
     const result = await event.get(`/${id}/show`);
 
     try{
-            const {title, _id, date,time, duration, describe,sessionNotes} = await result.data;
+            const {title, _id, date,time, duration,participants, describe,sessionNotes} = await result.data;
             const convertedEvent = {
                 title,
                 duration,
+                participants,
                 describe,
                 sessionNotes,
                 id: _id,
@@ -53,6 +54,7 @@ export const ShowEventsApi = () => async dispatch => {
                 time: event.time,
                 id: event._id,
                 duration: event.duration,
+                participants: event.participants,
                 describe: event.describe,
                 sessionNotes: event.sessionNotes
               }
@@ -102,6 +104,7 @@ export const addEventApi = (values) => async dispatch =>{
          date: values.date,
          time: values.time,
          duration: values.duration,
+         participants: values.participants,
          describe: values.describe,
          sessionNotes: values.sessionNotes
        })

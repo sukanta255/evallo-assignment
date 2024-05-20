@@ -8,8 +8,8 @@ import { useNavigate } from "react-router-dom";
 
 const Popping = ({open, handleClose, event, deleteEventApi, renderStatus, rerender})=> {
    const navigate = useNavigate();
-  const {id, describe,sessionNotes,duration, title, date,time} = event;
-
+  const {id, describe,participants,sessionNotes,duration, title, date,time} = event;
+  console.log("title-----------------",title)
    const handleDelete =async () => {
      await deleteEventApi(event.id);
      rerender(!renderStatus)
@@ -21,19 +21,30 @@ const Popping = ({open, handleClose, event, deleteEventApi, renderStatus, rerend
      return (
       <Modal show={open} onHide={handleClose}>
         <Modal.Header closeButton>
-            <Modal.Title className="text-capitalize">{title}</Modal.Title>
+            <Modal.Title className="text-capitalize">Title: {title}</Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            {describe? <p className="lead">{describe}</p>: "No Dsecriptions Yet"}
+            {describe? <p className="lead text-center">Description: {describe}</p>: "No Dsecriptions Yet"}
             <div className="row justify-content-between">
-              <p className="col small text-muted text-center pb-0 mb-0">from: {date}</p>
-              <p className="col small text-muted text-center pb-0 mb-0">to: {time}</p>
+              <p className="col small text-muted text-center pb-0 mb-0">Date: {date}</p>
+              {/* <p className="col small text-muted text-center pb-0 mb-0">Time: {time}</p> */}
+            </div>
+            <div>
+              <p className="col small text-muted text-center pb-0 mb-0">Session Notes: {sessionNotes}</p>
+            </div>
+            <div>
+              <p className="col small text-muted text-center pb-0 mb-0">Duration: {duration} hours</p>
+            </div>
+            <div>
+              <p className="col small text-muted text-center pb-0 mb-0">List Of Participants: {participants}</p>
             </div>
           </Modal.Body>
           <Modal.Footer>
      
+            <Link to={"/events/add"}><Button variant="success">Add Event</Button></Link>
+            {/* <Link className="nav-link pe-0 " to={"/events/add"}>Add Event</Link> */}
             <Button variant="warning" onClick={handleClose}>Close</Button>
-            <Link to={`/event/${id}/update`}><Button variant="success">Update</Button></Link>
+            {/* <Link to={`/event/${id}/update`}><Button variant="success">Update</Button></Link> */}
             <Button variant="danger" onClick={handleDelete}>Delete</Button>
         </Modal.Footer>
       </Modal>

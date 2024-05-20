@@ -40,6 +40,7 @@ const UpdateEvent = ({updateEventApi, event, error}) => {
         date: new Date(event.date) ,
         time: event.time? event.time : "",
         duration: event.duration? event.duration : "",
+        participants: event.participants? event.participants: "",
         describe: event.describe? event.describe : "",
         sessionNotes: event.sessionNotes? event.sessionNotes : "",
       }
@@ -87,27 +88,51 @@ const UpdateEvent = ({updateEventApi, event, error}) => {
     <p className={`error text-warning position-absolute ${errors.date?"active":""}`}>{errors.date?<i className=" bi bi-info-circle me-2"></i>:""}{errors.date?.message}</p>
     <p className={`error text-warning position-absolute ${dbError.date?"":"d-none"}`}>{dbError.date?<i className=" bi bi-info-circle me-2"></i>:""}{dbError.date}</p>
     </div>
+    {/* <div className="mb-4" style={{zIndex: "100"}}>
+      <label htmlFor="time" className="form-label">Time</label>
+      <Controller
+        control={control}
+        name="time"
+        render={({ field }) => (
+        <DatePicker
+          placeholderText="Select time"
+          onChange={(time) => field.onChange(time)}
+          selected={field.value}
+          value={field.value}
+          timeFormat="HH:mm"
+          dateFormat="h:mm aa"
+          showTimeSelect
+          showTimeSelectOnly
+          className="form-control"
+          id="time"
+       />
+    )}
+  />
+    <p className={`error text-warning position-absolute ${dbError.time?"":"d-none"}`}>{dbError.time?<i className=" bi bi-info-circle me-2"></i>:""}{dbError.time}</p>
+    </div> */}
     <div className="mb-4" style={{zIndex: "100"}}>
       <label htmlFor="time" className="form-label">Time</label>
       <Controller
-    control={control}
-    name="time"
-    render={({ field }) => (
+       control={control}
+       name="time"
+       render={({ field }) => (
       <DatePicker
-        placeholderText="Select end date"
+        placeholderText="Select time"
         onChange={(time) => field.onChange(time)}
         selected={field.value}
         timeFormat="HH:mm"
-        dateFormat="MMMM d, yyyy h:mm aa"
-        showTimeSelect
+        // dateFormat="MMMM d, yyyy h:mm aa"
+        // showTimeSelect
+        dateFormat="h:mm aa"
+        showTimeSelectOnly
         className="form-control"
         id="time"
         
       />
     )}
   />
-  <p className={`error text-warning position-absolute ${errors.time?"active":""}`}>{errors.time?<i className=" bi bi-info-circle me-2"></i>:""}{errors.time?.message}</p>
-  <p className={`error text-warning position-absolute ${dbError.time?"":"d-none"}`}>{dbError.time?<i className=" bi bi-info-circle me-2"></i>:""}{dbError.time}</p>
+  {/* <p className={`error text-warning position-absolute ${errors.time?"active":""}`}>{errors.time?<i className=" bi bi-info-circle me-2"></i>:""}{errors.time?.message}</p> */}
+  {/* <p className={`error text-warning position-absolute ${dbError.time?"":"d-none"}`}>{dbError.time?<i className=" bi bi-info-circle me-2"></i>:""}{dbError.time}</p> */}
 
     </div>
     <div className="mb-4">
@@ -116,6 +141,13 @@ const UpdateEvent = ({updateEventApi, event, error}) => {
       </label>
       <input {...register("duration")}   type="text" placeholder="duration your event" className="form-control" id="duration" aria-describedby="duration" />
     </div>
+    <div className="mb-4">
+      <label htmlFor="participants" className="form-label">
+        Event Description 
+      </label>
+      <input {...register("participants")}   type="text" placeholder="participants your event" className="form-control" id="participants" aria-describedby="participants" />
+    </div>
+    
     <div className="mb-4">
       <label htmlFor="describe" className="form-label">
         Event Description 

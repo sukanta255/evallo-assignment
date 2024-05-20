@@ -55,7 +55,7 @@ const MyCalendar = ({events, ShowEventApi, closeEvent, ShowEventsApi}) => {
       setOpen(false);
       setTimeout(()=>closeEvent(),300) ;
     }
-    
+    console.log("events--------------",events)
     return (
     <div>
         <Popping open={open}
@@ -66,9 +66,11 @@ const MyCalendar = ({events, ShowEventApi, closeEvent, ShowEventsApi}) => {
         <Calendar
             localizer={localizer}
             events={events}
-            startAccessor="start"
-            endAccessor="end"
-            style={{ height: 500 , margin: 50, fontFamily: 'Patrick Hand' }}
+            // startAccessor="start"
+            // endAccessor="end"
+            startAccessor="date"
+            endAccessor="time"
+            style={{ height: 500 , margin: 50 }}
             onSelectEvent={openEventClick}
         />
     </div>

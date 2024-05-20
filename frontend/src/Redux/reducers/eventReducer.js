@@ -5,6 +5,7 @@ const initialValue = {
     date: "",
     time: "",
     duration: "",
+    participants: "",
     describe: "",
     sessionNotes: ""
 }

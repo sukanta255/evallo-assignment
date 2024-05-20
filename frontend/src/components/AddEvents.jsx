@@ -42,10 +42,8 @@ const AddEvents = ({addEventApi, error}) => {
       setFirstRender(false)
         addEventApi(values)
         .then(()=>{
-        setRerender(!rerender)
-    
+          setRerender(!rerender)
         })
-        
        }
 
 
@@ -111,6 +109,12 @@ const AddEvents = ({addEventApi, error}) => {
         Event Description 
       </label>
       <input {...register("describe")}  type="text" placeholder="describe your event" className="form-control" id="describe" aria-describedby="describe" />
+    </div>
+    <div className="mb-4">
+      <label htmlFor="participants" className="form-label">
+        Event participants
+      </label>
+      <input {...register("participants")}  type="email" placeholder="participants your event" className="form-control" id="participants" aria-describedby="participants" />
     </div>
     <div className="mb-4">
       <label htmlFor="sessionNotes" className="form-label">
