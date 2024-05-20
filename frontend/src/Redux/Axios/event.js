@@ -1,6 +1,6 @@
 import axios from "axios";
 
 export const event = axios.create({
-    baseURL: "http://localhost:8080/api/events"
+    baseURL: "https://evallo-backend-2n3s.onrender.com/api/events"
   });
 

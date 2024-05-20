@@ -8,7 +8,7 @@ const EventSchema = new mongoose.Schema({
     time: { type: Date, required: [true, "Please write a time for your event"]},
     duration: { type: String, required: [true, "Please write a duration for your event"]},
     describe: { type: String, required: [true, "Please write a describe for your event"]},
-    participants: [{ type: String }],
+    participants: [{ type: String, required: [true, "Please write a participants for your event"] }],
     sessionNotes: { type: String, required: [true, "Please write a sessionNotes for your event"]}
 })
 

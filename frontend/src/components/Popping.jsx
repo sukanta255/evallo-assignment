@@ -9,7 +9,7 @@ import { useNavigate } from "react-router-dom";
 const Popping = ({open, handleClose, event, deleteEventApi, renderStatus, rerender})=> {
    const navigate = useNavigate();
   const {id, describe,participants,sessionNotes,duration, title, date,time} = event;
-  console.log("title-----------------",title)
+  // console.log("title-----------------",title)
    const handleDelete =async () => {
      await deleteEventApi(event.id);
      rerender(!renderStatus)
@@ -42,7 +42,6 @@ const Popping = ({open, handleClose, event, deleteEventApi, renderStatus, rerend
           <Modal.Footer>
      
             <Link to={"/events/add"}><Button variant="success">Add Event</Button></Link>
-            {/* <Link className="nav-link pe-0 " to={"/events/add"}>Add Event</Link> */}
             <Button variant="warning" onClick={handleClose}>Close</Button>
             {/* <Link to={`/event/${id}/update`}><Button variant="success">Update</Button></Link> */}
             <Button variant="danger" onClick={handleDelete}>Delete</Button>

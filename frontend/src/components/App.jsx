@@ -14,7 +14,7 @@ function App() {
      
       <div className="container-fluid align-items-center">
         <Link className="navbar-brand ms-2" to="/">
-          <h3>Basic user Calendar System with Google Calendar Integration</h3>
+          <h3>Basic user Calendar System Application</h3>
         </Link>
         <span className="navbar-brand mb-0 h2 "><Link className="nav-link pe-0 " to={"/events/add"}>Add Event</Link></span>
       </div>
